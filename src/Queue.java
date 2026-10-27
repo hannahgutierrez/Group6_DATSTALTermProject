@@ -15,6 +15,16 @@ public class Queue<T> implements QueueInterface<T> {
     }
 
     @Override
+    public void offer(T item) {
+        if (isFull()) {
+            throw new IllegalStateException("Queue is full");
+        }
+        back = (back + 1) % queueCapacity;
+        queue[back] = item;
+        count++;
+    }
+
+    @Override
     public T poll() {
         if (isEmpty()) {
             return null;
