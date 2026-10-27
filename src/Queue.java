@@ -14,4 +14,9 @@ public class Queue<T> implements QueueInterface<T> {
         this.count = 0;
     }
 
+    @Override
+    public boolean isFull() {
+        return count == queueCapacity;
+    }
+
 }
