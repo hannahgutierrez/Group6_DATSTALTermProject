@@ -15,6 +15,18 @@ public class Queue<T> implements QueueInterface<T> {
     }
 
     @Override
+    public T poll() {
+        if (isEmpty()) {
+            return null;
+        }
+        T item = queue[front];
+        queue[front] = null;
+        front = (front + 1) % queueCapacity;
+        count--;
+        return item;
+    }
+
+    @Override
     public T front() {
         if (isEmpty()) {
             return null;
