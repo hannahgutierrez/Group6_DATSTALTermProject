@@ -15,6 +15,14 @@ public class Queue<T> implements QueueInterface<T> {
     }
 
     @Override
+    public T back() {
+        if (isEmpty()) {
+            return null;
+        }
+        return queue[back];
+    }
+
+    @Override
     public int size() {
         return count;
     }
